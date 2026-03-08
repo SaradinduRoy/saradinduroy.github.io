@@ -3,85 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saradindur — Senior Software Engineer</title>
+  <title>Saradindur &mdash; Senior Software Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0a0a0a;
-      --surface: #111;
-      --border: #1e1e1e;
-      --accent: #b8f540;
-      --accent2: #40f0c8;
-      --text: #e6e6de;
-      --muted: #555;
-      --muted2: #888;
+      --bg: #0a0a0a; --surface: #111; --border: #1e1e1e;
+      --accent: #b8f540; --accent2: #40f0c8;
+      --text: #e6e6de; --muted: #555; --muted2: #888;
       --serif: 'DM Serif Display', serif;
       --mono: 'DM Mono', monospace;
       --sans: 'DM Sans', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
     /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.4rem 5rem;
-      background: rgba(10,10,10,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      animation: fadeDown 0.8s ease both;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 5rem; background: rgba(10,10,10,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); animation: fadeDown 0.8s ease both; }
     .nav-logo { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.12em; text-decoration: none; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { font-family: var(--mono); font-size: 0.72rem; color: var(--muted2); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
     /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
-      padding: 8rem 5rem 4rem; position: relative; overflow: hidden;
-    }
-    .hero-bg-grid {
-      position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(184,245,64,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,245,64,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-glow {
-      position: absolute; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(184,245,64,0.07) 0%, transparent 70%);
-      top: -100px; right: -100px; pointer-events: none;
-    }
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 8rem 5rem 4rem; position: relative; overflow: hidden; }
+    .hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,245,64,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,245,64,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(184,245,64,0.07) 0%, transparent 70%); top: -100px; right: -100px; pointer-events: none; }
     .hero-content { position: relative; z-index: 2; }
-    .hero-eyebrow {
-      font-family: var(--mono); font-size: 0.75rem; color: var(--accent);
-      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: 0.75rem;
-      animation: fadeUp 0.8s 0.2s ease both;
-    }
+    .hero-eyebrow { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; animation: fadeUp 0.8s 0.2s ease both; }
     .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
     h1 { font-family: var(--serif); font-size: clamp(3rem, 5vw, 5rem); line-height: 1.05; margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.35s ease both; }
     h1 em { font-style: italic; color: var(--accent); }
     .hero-desc { font-size: 1.05rem; color: var(--muted2); max-width: 480px; margin-bottom: 2.5rem; animation: fadeUp 0.8s 0.5s ease both; }
     .hero-cta { display: flex; gap: 1rem; animation: fadeUp 0.8s 0.65s ease both; }
-    .btn {
-      font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em;
-      text-transform: uppercase; text-decoration: none;
-      padding: 0.85rem 2rem; border-radius: 2px; transition: all 0.25s;
-      cursor: pointer; display: inline-block;
-    }
+    .btn { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 2rem; border-radius: 2px; transition: all 0.25s; cursor: pointer; display: inline-block; }
     .btn-primary { background: var(--accent); color: #0a0a0a; font-weight: 500; border: 1px solid var(--accent); }
     .btn-primary:hover { background: transparent; color: var(--accent); }
     .btn-outline { background: transparent; color: var(--muted2); border: 1px solid var(--border); }
@@ -99,19 +57,15 @@
     .stat-value { font-family: var(--mono); font-size: 0.85rem; color: var(--text); }
     .stat-value.accent { color: var(--accent); }
 
-    /* SECTIONS */
+    /* SHARED SECTION */
     section { padding: 7rem 5rem; }
-    .section-label {
-      font-family: var(--mono); font-size: 0.7rem; color: var(--accent);
-      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem;
-      display: flex; align-items: center; gap: 0.75rem;
-    }
+    .section-label { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
     .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); }
     h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.1; margin-bottom: 1rem; }
 
     /* ABOUT */
     #about { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; border-top: 1px solid var(--border); }
-    .about-text p { color: var(--muted2); margin-bottom: 1.2rem; font-size: 1.0rem; }
+    .about-text p { color: var(--muted2); margin-bottom: 1.2rem; font-size: 1rem; }
     .about-text p:last-child { margin-bottom: 0; }
     .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
     .skill-cell { background: var(--bg); padding: 1.25rem 1.5rem; transition: background 0.2s; }
@@ -130,31 +84,49 @@
     .exp-desc { font-size: 0.82rem; color: var(--muted2); margin-bottom: 0.5rem; line-height: 1.55; }
     .exp-tech { font-family: var(--mono); font-size: 0.7rem; color: var(--accent2); }
 
-    /* PORTFOLIO */
+    /* PORTFOLIO — no reveal, always visible */
     #portfolio { border-top: 1px solid var(--border); }
     .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
-    .portfolio-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-    }
-    .project-card {
-      background: var(--bg); padding: 2.5rem;
-      position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s;
-    }
-    .project-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
-    }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .project-card { background: var(--bg); padding: 2.5rem; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; min-height: 280px; }
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
     .project-card:hover { background: var(--surface); }
     .project-card:hover::before { transform: scaleX(1); }
     .project-num { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.15em; margin-bottom: 1.5rem; }
     .project-title { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.75rem; line-height: 1.2; }
     .project-desc { font-size: 0.85rem; color: var(--muted2); margin-bottom: 1.75rem; line-height: 1.6; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-bottom: 2.5rem; }
     .tag { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); border: 1px solid var(--border); padding: 0.25rem 0.6rem; letter-spacing: 0.08em; transition: all 0.2s; }
     .project-card:hover .tag { border-color: rgba(184,245,64,0.3); color: var(--muted2); }
-    .project-arrow { position: absolute; bottom: 2.5rem; right: 2.5rem; font-size: 1.2rem; color: var(--muted); transition: all 0.3s; }
-    .project-card:hover .project-arrow { color: var(--accent); transform: translate(4px, -4px); }
+    .project-arrow { position: absolute; bottom: 2rem; right: 2.5rem; font-size: 1.2rem; color: var(--muted); transition: all 0.3s; }
+    .project-card:hover .project-arrow { color: var(--accent); transform: translate(4px,-4px); }
+
+    /* AI TOOLS */
+    #ai-tools { border-top: 1px solid var(--border); }
+    .ai-intro { max-width: 640px; margin-bottom: 4rem; }
+    .ai-intro p { color: var(--muted2); font-size: 1rem; margin-top: 0.75rem; }
+    .ai-tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 4rem; }
+    .ai-tool-card { background: var(--bg); padding: 2.5rem; position: relative; transition: background 0.3s; overflow: hidden; }
+    .ai-tool-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--tool-color, var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+    .ai-tool-card:hover { background: var(--surface); }
+    .ai-tool-card:hover::after { transform: scaleX(1); }
+    .tool-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .tool-logo { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: var(--surface); border: 1px solid var(--border); flex-shrink: 0; }
+    .tool-name { font-family: var(--serif); font-size: 1.4rem; line-height: 1.1; }
+    .tool-category { font-family: var(--mono); font-size: 0.68rem; color: var(--tool-color, var(--accent)); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.2rem; }
+    .tool-desc { font-size: 0.88rem; color: var(--muted2); line-height: 1.6; margin-bottom: 1.5rem; }
+    .tool-usages { display: flex; flex-direction: column; gap: 0.5rem; }
+    .tool-usage-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.8rem; color: var(--muted2); }
+    .tool-usage-item::before { content: '\2192'; font-family: var(--mono); color: var(--tool-color, var(--accent)); font-size: 0.75rem; margin-top: 0.1rem; flex-shrink: 0; }
+    .vibe-banner { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; position: relative; overflow: hidden; }
+    .vibe-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(184,245,64,0.04) 0%, rgba(64,240,200,0.04) 100%); pointer-events: none; }
+    .vibe-title { font-family: var(--serif); font-size: 1.8rem; line-height: 1.1; margin-bottom: 0.6rem; }
+    .vibe-title em { font-style: italic; color: var(--accent); }
+    .vibe-desc { font-size: 0.9rem; color: var(--muted2); max-width: 500px; line-height: 1.6; }
+    .vibe-stats { display: flex; gap: 2.5rem; flex-shrink: 0; }
+    .vibe-stat { text-align: center; }
+    .vibe-stat-num { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }
+    .vibe-stat-label { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
 
     /* CONTACT */
     #contact { border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; padding: 5rem; }
@@ -175,116 +147,14 @@
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--accent2); } 50% { opacity: 0.5; box-shadow: 0 0 4px var(--accent2); } }
+    @keyframes pulse { 0%,100% { opacity:1; box-shadow: 0 0 8px var(--accent2); } 50% { opacity:.5; box-shadow: 0 0 4px var(--accent2); } }
 
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Scroll reveal — ONLY hides when JS is active via .js-ready on body */
+    .js-ready .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* AI TOOLS SECTION */
-    #ai-tools { border-top: 1px solid var(--border); }
-    .ai-intro { max-width: 640px; margin-bottom: 4rem; }
-    .ai-intro p { color: var(--muted2); font-size: 1rem; margin-top: 0.75rem; }
-
-    .ai-tools-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 4rem;
-    }
-    .ai-tool-card {
-      background: var(--bg);
-      padding: 2.5rem;
-      position: relative;
-      transition: background 0.3s;
-      overflow: hidden;
-    }
-    .ai-tool-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--tool-color, var(--accent));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .ai-tool-card:hover { background: var(--surface); }
-    .ai-tool-card:hover::after { transform: scaleX(1); }
-
-    .tool-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
-    .tool-logo {
-      width: 44px; height: 44px;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      flex-shrink: 0;
-    }
-    .tool-name { font-family: var(--serif); font-size: 1.4rem; line-height: 1.1; }
-    .tool-category {
-      font-family: var(--mono); font-size: 0.68rem;
-      color: var(--tool-color, var(--accent));
-      letter-spacing: 0.12em; text-transform: uppercase;
-      margin-top: 0.2rem;
-    }
-    .tool-desc { font-size: 0.88rem; color: var(--muted2); line-height: 1.6; margin-bottom: 1.5rem; }
-    .tool-usages { display: flex; flex-direction: column; gap: 0.5rem; }
-    .tool-usage-item {
-      display: flex; align-items: flex-start; gap: 0.6rem;
-      font-size: 0.8rem; color: var(--muted2);
-    }
-    .tool-usage-item::before {
-      content: '→';
-      font-family: var(--mono);
-      color: var(--tool-color, var(--accent));
-      font-size: 0.75rem;
-      margin-top: 0.1rem;
-      flex-shrink: 0;
-    }
-
-    /* VIBE CODING BANNER */
-    .vibe-banner {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2.5rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .vibe-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(184,245,64,0.04) 0%, rgba(64,240,200,0.04) 100%);
-      pointer-events: none;
-    }
-    .vibe-banner-left {}
-    .vibe-title {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      line-height: 1.1;
-      margin-bottom: 0.6rem;
-    }
-    .vibe-title em { font-style: italic; color: var(--accent); }
-    .vibe-desc { font-size: 0.9rem; color: var(--muted2); max-width: 500px; line-height: 1.6; }
-    .vibe-stats { display: flex; gap: 2.5rem; flex-shrink: 0; }
-    .vibe-stat { text-align: center; }
-    .vibe-stat-num { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }
-    .vibe-stat-label { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
-
-    @media (max-width: 900px) {
-      .ai-tools-grid { grid-template-columns: 1fr; }
-      .vibe-banner { flex-direction: column; padding: 2rem; }
-      .vibe-stats { gap: 1.5rem; }
-    }
-    @media (max-width: 900px) {
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
       nav { padding: 1.2rem 2rem; }
       .nav-links { display: none; }
       #hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; }
@@ -292,15 +162,17 @@
       section { padding: 5rem 2rem; }
       #about { grid-template-columns: 1fr; gap: 3rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
+      .ai-tools-grid { grid-template-columns: 1fr; }
       #contact { flex-direction: column; gap: 2rem; text-align: center; padding: 4rem 2rem; }
       footer { flex-direction: column; gap: 1rem; padding: 1.5rem 2rem; text-align: center; }
       .skills-grid { grid-template-columns: 1fr; }
+      .vibe-banner { flex-direction: column; padding: 2rem; }
+      .vibe-stats { gap: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">SARADINDUR.DEV</a>
   <ul class="nav-links">
@@ -328,11 +200,10 @@
     <div class="hero-card">
       <div class="status-dot">Available for Opportunities</div>
       <div class="stat-item"><span class="stat-label">Experience</span><span class="stat-value accent">9 Years</span></div>
-      <div class="stat-item"><span class="stat-label">Primary Stack</span><span class="stat-value">Java 24 / Spring Boot 3.x / Python / Node.js</span></div>
+      <div class="stat-item"><span class="stat-label">Primary Stack</span><span class="stat-value">Java 24 / Spring Boot 3.x</span></div>
       <div class="stat-item"><span class="stat-label">Architecture</span><span class="stat-value">Microservices</span></div>
-      <div class="stat-item"><span class="stat-label">Databases</span><span class="stat-value">MySQL · PostgreSQL</span></div>
-      <div class="stat-item"><span class="stat-label">DevOps</span><span class="stat-value">Kafka · Docker · Jenkins · Git</span></div>
-      <div class="stat-item"><span class="stat-label">Testing Frameworks</span><span class="stat-value">JUnit · Rest Assured · Cucmber</span></div>
+      <div class="stat-item"><span class="stat-label">Databases</span><span class="stat-value">MySQL &middot; PostgreSQL</span></div>
+      <div class="stat-item"><span class="stat-label">DevOps</span><span class="stat-value">Docker &middot; Jenkins &middot; Git</span></div>
     </div>
   </div>
 </section>
@@ -343,17 +214,17 @@
     <div class="section-label">About Me</div>
     <h2>Engineer &amp;<br/><em style="font-style:italic;color:var(--accent)">Problem Solver</em></h2>
     <div class="about-text" style="margin-top:1.5rem;">
-      <p>I'm a seasoned software engineer with 9 years of hands-on expertise building robust, scalable applications. My core strength lies in Spring Boot 3.x and Java 24, leveraging modern language features — lambdas, streams, and functional paradigms — to write clean, maintainable code.</p>
-      <p>I specialize in designing microservice architectures that prioritize loose coupling, fault tolerance, and horizontal scalability using Spring Cloud and Netflix OSS. I care deeply about the entire software lifecycle — from requirements and design through to deployment and production monitoring.</p>
+      <p>I'm a seasoned software engineer with 9 years of hands-on expertise building robust, scalable applications. My core strength lies in Spring Boot 3.x and Java 24, leveraging modern language features &mdash; lambdas, streams, and functional paradigms &mdash; to write clean, maintainable code.</p>
+      <p>I specialize in designing microservice architectures that prioritize loose coupling, fault tolerance, and horizontal scalability using Spring Cloud and Netflix OSS. I care deeply about the entire software lifecycle &mdash; from requirements and design through to deployment and production monitoring.</p>
       <p>Security is never an afterthought: I implement authentication, authorization, and data protection best practices from day one. Committed to continuous learning and staying at the frontier of the JVM ecosystem.</p>
     </div>
     <div class="skills-grid">
-      <div class="skill-cell"><div class="skill-icon">🚀</div><div class="skill-name">Spring Boot 3.x</div><div class="skill-desc">Scalable, maintainable apps</div></div>
-      <div class="skill-cell"><div class="skill-icon">☕</div><div class="skill-name">Java 24</div><div class="skill-desc">Modern JVM features</div></div>
-      <div class="skill-cell"><div class="skill-icon">🌐</div><div class="skill-name">Microservices</div><div class="skill-desc">Spring Cloud · Netflix OSS</div></div>
-      <div class="skill-cell"><div class="skill-icon">🛠️</div><div class="skill-name">RESTful APIs</div><div class="skill-desc">Secure &amp; well-designed</div></div>
-      <div class="skill-cell"><div class="skill-icon">🗄️</div><div class="skill-name">Databases</div><div class="skill-desc">MySQL · PostgreSQL</div></div>
-      <div class="skill-cell"><div class="skill-icon">🔧</div><div class="skill-name">DevOps</div><div class="skill-desc">Docker · Jenkins · Git</div></div>
+      <div class="skill-cell"><div class="skill-icon">&#x1F680;</div><div class="skill-name">Spring Boot 3.x</div><div class="skill-desc">Scalable, maintainable apps</div></div>
+      <div class="skill-cell"><div class="skill-icon">&#x2615;</div><div class="skill-name">Java 24</div><div class="skill-desc">Modern JVM features</div></div>
+      <div class="skill-cell"><div class="skill-icon">&#x1F310;</div><div class="skill-name">Microservices</div><div class="skill-desc">Spring Cloud &middot; Netflix OSS</div></div>
+      <div class="skill-cell"><div class="skill-icon">&#x1F6E0;</div><div class="skill-name">RESTful APIs</div><div class="skill-desc">Secure &amp; well-designed</div></div>
+      <div class="skill-cell"><div class="skill-icon">&#x1F5C4;</div><div class="skill-name">Databases</div><div class="skill-desc">MySQL &middot; PostgreSQL</div></div>
+      <div class="skill-cell"><div class="skill-icon">&#x1F527;</div><div class="skill-name">DevOps</div><div class="skill-desc">Docker &middot; Jenkins &middot; Git</div></div>
     </div>
   </div>
 
@@ -361,74 +232,67 @@
     <div class="section-label">Experience</div>
     <h2>9 Years of<br/><em style="font-style:italic;color:var(--accent)">Deep Expertise</em></h2>
     <div style="margin-top:2.5rem;">
-
       <div class="exp-item">
         <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
         <div>
-          <div class="exp-year">SEP 2024 — PRESENT · Capital One</div>
+          <div class="exp-year">SEP 2024 &mdash; PRESENT &middot; Capital One</div>
           <div class="exp-role">SDE 3</div>
           <div class="exp-desc">Built features for 7PS, an internal on-premise test automation platform supporting Node.js, Java, Go &amp; Python. Supported Cypress, Playwright, Mocha, Karate, Rest Assured, Jest &amp; more. Resolved 20+ customer issues daily and contributed to the Kai Chatbot upgrade.</div>
-          <div class="exp-tech">Java · Node.js · Python · AWS · Docker · New Relic · Splunk · BDD · Cucumber</div>
+          <div class="exp-tech">Java &middot; Node.js &middot; Python &middot; AWS &middot; Docker &middot; New Relic &middot; Splunk &middot; BDD &middot; Cucumber</div>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
         <div>
-          <div class="exp-year">SEP 2022 — PRESENT · Cognizant</div>
+          <div class="exp-year">SEP 2022 &mdash; PRESENT &middot; Cognizant</div>
           <div class="exp-role">Technical Lead</div>
           <div class="exp-desc">Led backend microservice development using Spring Boot on AWS. Drove Agile delivery and architecture decisions across a cross-functional team.</div>
-          <div class="exp-tech">Spring Boot · Java · Microservices · AWS · Spring Batch · RabbitMQ · Cloud Foundry · GitLab</div>
+          <div class="exp-tech">Spring Boot &middot; Java &middot; Microservices &middot; AWS &middot; Spring Batch &middot; RabbitMQ &middot; Cloud Foundry &middot; GitLab</div>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
         <div>
-          <div class="exp-year">FEB 2021 — AUG 2022 · Wipro Digital</div>
+          <div class="exp-year">FEB 2021 &mdash; AUG 2022 &middot; Wipro Digital</div>
           <div class="exp-role">Senior Project Engineer</div>
           <div class="exp-desc">Delivered backend application features in an Agile environment, contributing to scalable service development and CI/CD workflows.</div>
-          <div class="exp-tech">Java · Spring Boot · GitLab · Agile</div>
+          <div class="exp-tech">Java &middot; Spring Boot &middot; GitLab &middot; Agile</div>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
         <div>
-          <div class="exp-year">FEB 2019 — FEB 2021 · Capgemini</div>
+          <div class="exp-year">FEB 2019 &mdash; FEB 2021 &middot; Capgemini</div>
           <div class="exp-role">Associate Consultant</div>
           <div class="exp-desc">Senior Developer in the SSO team for MUFG. Built new APIs and microservices for the client while mentoring junior developers on modern technologies.</div>
-          <div class="exp-tech">Java · Microservices · Spring Boot · GitLab · Agile</div>
+          <div class="exp-tech">Java &middot; Microservices &middot; Spring Boot &middot; GitLab &middot; Agile</div>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
         <div>
-          <div class="exp-year">APR 2017 — FEB 2019 · Mphasis</div>
+          <div class="exp-year">APR 2017 &mdash; FEB 2019 &middot; Mphasis</div>
           <div class="exp-role">Associate Software Engineer</div>
-          <div class="exp-desc">Built backend APIs for FedEx on Java with Pivotal Cloud Foundry (PaaS). Trained new resources in modern technologies and logistics domain knowledge.</div>
-          <div class="exp-tech">Java · Spring MVC · Cloud Foundry · GitLab · Agile</div>
+          <div class="exp-desc">Built backend APIs for FedEx on Java with Pivotal Cloud Foundry. Trained new resources in modern technologies and logistics domain knowledge.</div>
+          <div class="exp-tech">Java &middot; Spring MVC &middot; Cloud Foundry &middot; GitLab &middot; Agile</div>
         </div>
       </div>
-
       <div class="exp-item" style="margin-bottom:0;">
         <div class="exp-line"><div class="exp-dot"></div></div>
         <div>
-          <div class="exp-year">NOV 2016 — APR 2017 · Mphasis</div>
+          <div class="exp-year">NOV 2016 &mdash; APR 2017 &middot; Mphasis</div>
           <div class="exp-role">Associate Software Engineer Trainee</div>
           <div class="exp-desc">Trained in Core Java, SQL, and Spring MVC at Mphasis Training Centre MLA.</div>
-          <div class="exp-tech">Core Java · SQL · Spring MVC</div>
+          <div class="exp-tech">Core Java &middot; SQL &middot; Spring MVC</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- PORTFOLIO — no reveal classes, always visible -->
 <section id="portfolio">
-  <div class="portfolio-header reveal">
+  <div class="portfolio-header">
     <div>
       <div class="section-label">Portfolio</div>
       <h2>Selected<br/><em style="font-style:italic;color:var(--accent)">Projects</em></h2>
@@ -436,116 +300,88 @@
   </div>
   <div class="portfolio-grid">
     <div class="project-card">
-      <div class="project-num">01 —</div>
+      <div class="project-num">01 &mdash;</div>
       <div class="project-title">E-Commerce Microservice Platform</div>
       <div class="project-desc">Architected a fully distributed e-commerce backend with independent services for inventory, orders, payments, and notifications. Achieved 99.9% uptime via circuit breakers and event-driven communication.</div>
-      <div class="project-tags">
-        <span class="tag">Spring Boot 3.x</span><span class="tag">Java 24</span><span class="tag">Kafka</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
-      </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-tags"><span class="tag">Spring Boot 3.x</span><span class="tag">Java 24</span><span class="tag">Kafka</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+      <div class="project-arrow">&#x2197;</div>
     </div>
     <div class="project-card">
-      <div class="project-num">02 —</div>
+      <div class="project-num">02 &mdash;</div>
       <div class="project-title">Secure API Gateway &amp; Auth Service</div>
       <div class="project-desc">Designed a centralized API gateway with JWT-based authentication, role-based access control, and rate limiting. Reduced unauthorized access incidents to zero in production.</div>
-      <div class="project-tags">
-        <span class="tag">Spring Security</span><span class="tag">JWT</span><span class="tag">Spring Cloud</span><span class="tag">OAuth 2.0</span>
-      </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-tags"><span class="tag">Spring Security</span><span class="tag">JWT</span><span class="tag">Spring Cloud</span><span class="tag">OAuth 2.0</span></div>
+      <div class="project-arrow">&#x2197;</div>
     </div>
     <div class="project-card">
-      <div class="project-num">03 —</div>
+      <div class="project-num">03 &mdash;</div>
       <div class="project-title">Real-Time Data Processing Pipeline</div>
       <div class="project-desc">Built a high-throughput data ingestion pipeline handling 500K+ events per minute. Integrated with MySQL and PostgreSQL for persistence and analytics queries.</div>
-      <div class="project-tags">
-        <span class="tag">Java 24</span><span class="tag">Spring Batch</span><span class="tag">Kafka Streams</span><span class="tag">MySQL</span>
-      </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-tags"><span class="tag">Java 24</span><span class="tag">Spring Batch</span><span class="tag">Kafka Streams</span><span class="tag">MySQL</span></div>
+      <div class="project-arrow">&#x2197;</div>
     </div>
     <div class="project-card">
-      <div class="project-num">04 —</div>
+      <div class="project-num">04 &mdash;</div>
       <div class="project-title">7PS Test Automation Platform</div>
       <div class="project-desc">Developed new features for Capital One's internal on-premise automation platform, supporting Cypress, Playwright, Karate, Jest, and more. Improved CI/CD integration for 20+ daily users.</div>
-      <div class="project-tags">
-        <span class="tag">Node.js</span><span class="tag">Java</span><span class="tag">Cypress</span><span class="tag">Playwright</span><span class="tag">AWS</span>
-      </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-tags"><span class="tag">Node.js</span><span class="tag">Java</span><span class="tag">Cypress</span><span class="tag">Playwright</span><span class="tag">AWS</span></div>
+      <div class="project-arrow">&#x2197;</div>
     </div>
     <div class="project-card">
-      <div class="project-num">05 —</div>
+      <div class="project-num">05 &mdash;</div>
       <div class="project-title">FedEx Logistics API Suite</div>
-      <div class="project-desc">Built backend APIs for FedEx to streamline logistics operations, deployed on Pivotal Cloud Foundry (PaaS). Improved business process efficiency through clean, well-documented REST interfaces.</div>
-      <div class="project-tags">
-        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Cloud Foundry</span><span class="tag">REST APIs</span>
-      </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-desc">Built backend APIs for FedEx to streamline logistics operations, deployed on Pivotal Cloud Foundry. Improved business process efficiency through clean, well-documented REST interfaces.</div>
+      <div class="project-tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Cloud Foundry</span><span class="tag">REST APIs</span></div>
+      <div class="project-arrow">&#x2197;</div>
     </div>
     <div class="project-card">
-      <div class="project-num">06 —</div>
+      <div class="project-num">06 &mdash;</div>
       <div class="project-title">MUFG SSO Microservices</div>
       <div class="project-desc">Led API and service development for MUFG's SSO team at Capgemini. Designed secure microservice endpoints while mentoring junior developers on architecture best practices.</div>
-      <div class="project-tags">
-        <span class="tag">Spring Boot</span><span class="tag">Microservices</span><span class="tag">Java</span><span class="tag">GitLab</span>
-      </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-tags"><span class="tag">Spring Boot</span><span class="tag">Microservices</span><span class="tag">Java</span><span class="tag">GitLab</span></div>
+      <div class="project-arrow">&#x2197;</div>
     </div>
   </div>
 </section>
 
-<!-- AI TOOLS & VIBE CODING -->
+<!-- AI TOOLS -->
 <section id="ai-tools">
   <div class="ai-intro reveal">
     <div class="section-label">AI &amp; Vibe Coding</div>
     <h2>Supercharged by<br/><em style="font-style:italic;color:var(--accent)">Generative AI</em></h2>
-    <p>Integrating cutting-edge AI tools into daily development workflows — from intelligent code completion to conversational debugging, accelerating delivery without compromising quality.</p>
+    <p>Integrating cutting-edge AI tools into daily development workflows &mdash; from intelligent code completion to conversational debugging, accelerating delivery without compromising quality.</p>
   </div>
-
-  <div class="ai-tools-grid reveal" style="transition-delay:0.1s;">
-
-    <!-- GitHub Copilot -->
-    <div class="ai-tool-card" style="--tool-color: #7ee787;">
+  <div class="ai-tools-grid">
+    <div class="ai-tool-card" style="--tool-color:#7ee787;">
       <div class="tool-header">
-        <div class="tool-logo">🤖</div>
-        <div>
-          <div class="tool-name">GitHub Copilot</div>
-          <div class="tool-category">AI Code Assistant</div>
-        </div>
+        <div class="tool-logo">&#x1F916;</div>
+        <div><div class="tool-name">GitHub Copilot</div><div class="tool-category">AI Code Assistant</div></div>
       </div>
       <p class="tool-desc">My primary in-editor AI pair programmer. Deeply integrated into daily Spring Boot and Java development, dramatically reducing boilerplate and accelerating feature delivery.</p>
       <div class="tool-usages">
         <div class="tool-usage-item">Autocomplete for Spring Boot controllers, services &amp; repositories</div>
         <div class="tool-usage-item">Generating unit tests with JUnit 5 &amp; Mockito from method signatures</div>
-        <div class="tool-usage-item">Writing boilerplate — DTOs, mappers, exception handlers — instantly</div>
+        <div class="tool-usage-item">Writing boilerplate &mdash; DTOs, mappers, exception handlers &mdash; instantly</div>
         <div class="tool-usage-item">Inline code explanations and refactoring suggestions</div>
       </div>
     </div>
-
-    <!-- Claude -->
-    <div class="ai-tool-card" style="--tool-color: #c8a97e;">
+    <div class="ai-tool-card" style="--tool-color:#c8a97e;">
       <div class="tool-header">
-        <div class="tool-logo">✦</div>
-        <div>
-          <div class="tool-name">Claude</div>
-          <div class="tool-category">Reasoning &amp; Architecture</div>
-        </div>
+        <div class="tool-logo">&#x2736;</div>
+        <div><div class="tool-name">Claude</div><div class="tool-category">Reasoning &amp; Architecture</div></div>
       </div>
       <p class="tool-desc">Go-to AI for complex architectural reasoning, code reviews, and nuanced problem solving. Exceptional at understanding large codebases and providing thoughtful, detailed responses.</p>
       <div class="tool-usages">
         <div class="tool-usage-item">Microservice architecture design and trade-off analysis</div>
-        <div class="tool-usage-item">Deep code reviews — security, performance, design patterns</div>
+        <div class="tool-usage-item">Deep code reviews &mdash; security, performance, design patterns</div>
         <div class="tool-usage-item">Debugging complex Spring Boot / JVM issues with full context</div>
         <div class="tool-usage-item">Writing and refining technical documentation</div>
       </div>
     </div>
-
-    <!-- ChatGPT -->
-    <div class="ai-tool-card" style="--tool-color: #19c37d;">
+    <div class="ai-tool-card" style="--tool-color:#19c37d;">
       <div class="tool-header">
-        <div class="tool-logo">💬</div>
-        <div>
-          <div class="tool-name">ChatGPT</div>
-          <div class="tool-category">Ideation &amp; Prototyping</div>
-        </div>
+        <div class="tool-logo">&#x1F4AC;</div>
+        <div><div class="tool-name">ChatGPT</div><div class="tool-category">Ideation &amp; Prototyping</div></div>
       </div>
       <p class="tool-desc">Used for rapid ideation, quick prototypes, and exploring unfamiliar APIs or frameworks. Great for brainstorming solutions and getting unstuck fast during development.</p>
       <div class="tool-usages">
@@ -555,15 +391,10 @@
         <div class="tool-usage-item">Explaining error stack traces and suggesting quick fixes</div>
       </div>
     </div>
-
-    <!-- Gemini -->
-    <div class="ai-tool-card" style="--tool-color: #4285f4;">
+    <div class="ai-tool-card" style="--tool-color:#4285f4;">
       <div class="tool-header">
-        <div class="tool-logo">♊</div>
-        <div>
-          <div class="tool-name">Gemini</div>
-          <div class="tool-category">Research &amp; Analysis</div>
-        </div>
+        <div class="tool-logo">&#x264A;</div>
+        <div><div class="tool-name">Gemini</div><div class="tool-category">Research &amp; Analysis</div></div>
       </div>
       <p class="tool-desc">Leveraged for research-heavy tasks, staying updated with the Java ecosystem, and cross-referencing documentation. Integrated via Google Workspace for seamless productivity.</p>
       <div class="tool-usages">
@@ -573,28 +404,16 @@
         <div class="tool-usage-item">Generating dashboards &amp; analytics queries for New Relic / QuickSight</div>
       </div>
     </div>
-
   </div>
-
-  <!-- Vibe Coding Banner -->
-  <div class="vibe-banner reveal" style="transition-delay:0.2s;">
+  <div class="vibe-banner reveal">
     <div class="vibe-banner-left">
-      <div class="vibe-title">Vibe Coding is <em>not a shortcut</em> —<br/>it's a superpower.</div>
-      <p class="vibe-desc">AI tools don't replace engineering judgment — they amplify it. I use Gen AI to eliminate friction, explore faster, and spend more time on what actually matters: thoughtful system design, clean abstractions, and shipping reliable software.</p>
+      <div class="vibe-title">Vibe Coding is <em>not a shortcut</em> &mdash;<br/>it&rsquo;s a superpower.</div>
+      <p class="vibe-desc">AI tools don&rsquo;t replace engineering judgment &mdash; they amplify it. I use Gen AI to eliminate friction, explore faster, and spend more time on what actually matters: thoughtful system design, clean abstractions, and shipping reliable software.</p>
     </div>
     <div class="vibe-stats">
-      <div class="vibe-stat">
-        <div class="vibe-stat-num">4+</div>
-        <div class="vibe-stat-label">AI Tools Daily</div>
-      </div>
-      <div class="vibe-stat">
-        <div class="vibe-stat-num">2×</div>
-        <div class="vibe-stat-label">Faster Delivery</div>
-      </div>
-      <div class="vibe-stat">
-        <div class="vibe-stat-num">↓70%</div>
-        <div class="vibe-stat-label">Boilerplate Time</div>
-      </div>
+      <div class="vibe-stat"><div class="vibe-stat-num">4+</div><div class="vibe-stat-label">AI Tools Daily</div></div>
+      <div class="vibe-stat"><div class="vibe-stat-num">2&times;</div><div class="vibe-stat-label">Faster Delivery</div></div>
+      <div class="vibe-stat"><div class="vibe-stat-num">&#x2193;70%</div><div class="vibe-stat-label">Boilerplate Time</div></div>
     </div>
   </div>
 </section>
@@ -603,12 +422,12 @@
 <div id="contact">
   <div class="contact-left">
     <div class="section-label">Contact</div>
-    <h2>Let's build something<br/><em>great together.</em></h2>
+    <h2>Let&rsquo;s build something<br/><em>great together.</em></h2>
     <p>Open to new opportunities, collaborations, and tech discussions.</p>
   </div>
   <div>
-    <a href="/cdn-cgi/l/email-protection#1c6f7d6e7d78757278696e2f5c7b717d7570327f7371" class="contact-email"><span class="__cf_email__" data-cfemail="611200130005080f0514135221060c00080d4f020e0c">[email&#160;protected]</span></a>
-    <a href="/cdn-cgi/l/email-protection#d0a3b1a2b1b4b9beb4a5a2e390b7bdb1b9bcfeb3bfbd" class="btn btn-primary">Send a Message</a>
+    <a href="#contact" class="contact-email" id="email-link">saradindur3 [at] gmail.com</a>
+    <a href="#contact" class="btn btn-primary" id="email-btn">Send a Message</a>
   </div>
 </div>
 
@@ -620,10 +439,32 @@
     <a href="#about">About</a>
     <a href="#portfolio">Work</a>
     <a href="#ai-tools">AI Tools</a>
-    <a href="mailto:saradindur3@gmail.com">Email</a>
+    <a href="#contact" id="footer-email">Email</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll reveal — low threshold so elements trigger early
-  const observer = new IntersectionObserv
+<script>
+  // Add js-ready to body so reveal animations activate (safe — content visible before this runs)
+  document.body.classList.add('js-ready');
+
+  // Set real email links via JS to avoid Cloudflare scraping
+  const em = 'saradindur3' + '@' + 'gmail.com';
+  document.getElementById('email-link').href = 'mailto:' + em;
+  document.getElementById('email-link').textContent = em;
+  document.getElementById('email-btn').href = 'mailto:' + em;
+  document.getElementById('footer-email').href = 'mailto:' + em;
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
