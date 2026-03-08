@@ -180,7 +180,110 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* RESPONSIVE */
+    /* AI TOOLS SECTION */
+    #ai-tools { border-top: 1px solid var(--border); }
+    .ai-intro { max-width: 640px; margin-bottom: 4rem; }
+    .ai-intro p { color: var(--muted2); font-size: 1rem; margin-top: 0.75rem; }
+
+    .ai-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
+    .ai-tool-card {
+      background: var(--bg);
+      padding: 2.5rem;
+      position: relative;
+      transition: background 0.3s;
+      overflow: hidden;
+    }
+    .ai-tool-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--tool-color, var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .ai-tool-card:hover { background: var(--surface); }
+    .ai-tool-card:hover::after { transform: scaleX(1); }
+
+    .tool-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .tool-logo {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .tool-name { font-family: var(--serif); font-size: 1.4rem; line-height: 1.1; }
+    .tool-category {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--tool-color, var(--accent));
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+    .tool-desc { font-size: 0.88rem; color: var(--muted2); line-height: 1.6; margin-bottom: 1.5rem; }
+    .tool-usages { display: flex; flex-direction: column; gap: 0.5rem; }
+    .tool-usage-item {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.8rem; color: var(--muted2);
+    }
+    .tool-usage-item::before {
+      content: '→';
+      font-family: var(--mono);
+      color: var(--tool-color, var(--accent));
+      font-size: 0.75rem;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+
+    /* VIBE CODING BANNER */
+    .vibe-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .vibe-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(184,245,64,0.04) 0%, rgba(64,240,200,0.04) 100%);
+      pointer-events: none;
+    }
+    .vibe-banner-left {}
+    .vibe-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+    .vibe-title em { font-style: italic; color: var(--accent); }
+    .vibe-desc { font-size: 0.9rem; color: var(--muted2); max-width: 500px; line-height: 1.6; }
+    .vibe-stats { display: flex; gap: 2.5rem; flex-shrink: 0; }
+    .vibe-stat { text-align: center; }
+    .vibe-stat-num { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }
+    .vibe-stat-label { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+
+    @media (max-width: 900px) {
+      .ai-tools-grid { grid-template-columns: 1fr; }
+      .vibe-banner { flex-direction: column; padding: 2rem; }
+      .vibe-stats { gap: 1.5rem; }
+    }
     @media (max-width: 900px) {
       nav { padding: 1.2rem 2rem; }
       .nav-links { display: none; }
@@ -203,6 +306,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#ai-tools">AI Tools</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -224,10 +328,11 @@
     <div class="hero-card">
       <div class="status-dot">Available for Opportunities</div>
       <div class="stat-item"><span class="stat-label">Experience</span><span class="stat-value accent">9 Years</span></div>
-      <div class="stat-item"><span class="stat-label">Primary Stack</span><span class="stat-value">Java 24 / Spring Boot 3.x</span></div>
+      <div class="stat-item"><span class="stat-label">Primary Stack</span><span class="stat-value">Java 24 / Spring Boot 3.x / Python / Node.js</span></div>
       <div class="stat-item"><span class="stat-label">Architecture</span><span class="stat-value">Microservices</span></div>
       <div class="stat-item"><span class="stat-label">Databases</span><span class="stat-value">MySQL · PostgreSQL</span></div>
-      <div class="stat-item"><span class="stat-label">DevOps</span><span class="stat-value">Docker · Jenkins · Git</span></div>
+      <div class="stat-item"><span class="stat-label">DevOps</span><span class="stat-value">Kafka · Docker · Jenkins · Git</span></div>
+      <div class="stat-item"><span class="stat-label">Testing Frameworks</span><span class="stat-value">JUnit · Rest Assured · Cucmber</span></div>
     </div>
   </div>
 </section>
@@ -387,6 +492,113 @@
   </div>
 </section>
 
+<!-- AI TOOLS & VIBE CODING -->
+<section id="ai-tools">
+  <div class="ai-intro reveal">
+    <div class="section-label">AI &amp; Vibe Coding</div>
+    <h2>Supercharged by<br/><em style="font-style:italic;color:var(--accent)">Generative AI</em></h2>
+    <p>Integrating cutting-edge AI tools into daily development workflows — from intelligent code completion to conversational debugging, accelerating delivery without compromising quality.</p>
+  </div>
+
+  <div class="ai-tools-grid reveal" style="transition-delay:0.1s;">
+
+    <!-- GitHub Copilot -->
+    <div class="ai-tool-card" style="--tool-color: #7ee787;">
+      <div class="tool-header">
+        <div class="tool-logo">🤖</div>
+        <div>
+          <div class="tool-name">GitHub Copilot</div>
+          <div class="tool-category">AI Code Assistant</div>
+        </div>
+      </div>
+      <p class="tool-desc">My primary in-editor AI pair programmer. Deeply integrated into daily Spring Boot and Java development, dramatically reducing boilerplate and accelerating feature delivery.</p>
+      <div class="tool-usages">
+        <div class="tool-usage-item">Autocomplete for Spring Boot controllers, services &amp; repositories</div>
+        <div class="tool-usage-item">Generating unit tests with JUnit 5 &amp; Mockito from method signatures</div>
+        <div class="tool-usage-item">Writing boilerplate — DTOs, mappers, exception handlers — instantly</div>
+        <div class="tool-usage-item">Inline code explanations and refactoring suggestions</div>
+      </div>
+    </div>
+
+    <!-- Claude -->
+    <div class="ai-tool-card" style="--tool-color: #c8a97e;">
+      <div class="tool-header">
+        <div class="tool-logo">✦</div>
+        <div>
+          <div class="tool-name">Claude</div>
+          <div class="tool-category">Reasoning &amp; Architecture</div>
+        </div>
+      </div>
+      <p class="tool-desc">Go-to AI for complex architectural reasoning, code reviews, and nuanced problem solving. Exceptional at understanding large codebases and providing thoughtful, detailed responses.</p>
+      <div class="tool-usages">
+        <div class="tool-usage-item">Microservice architecture design and trade-off analysis</div>
+        <div class="tool-usage-item">Deep code reviews — security, performance, design patterns</div>
+        <div class="tool-usage-item">Debugging complex Spring Boot / JVM issues with full context</div>
+        <div class="tool-usage-item">Writing and refining technical documentation</div>
+      </div>
+    </div>
+
+    <!-- ChatGPT -->
+    <div class="ai-tool-card" style="--tool-color: #19c37d;">
+      <div class="tool-header">
+        <div class="tool-logo">💬</div>
+        <div>
+          <div class="tool-name">ChatGPT</div>
+          <div class="tool-category">Ideation &amp; Prototyping</div>
+        </div>
+      </div>
+      <p class="tool-desc">Used for rapid ideation, quick prototypes, and exploring unfamiliar APIs or frameworks. Great for brainstorming solutions and getting unstuck fast during development.</p>
+      <div class="tool-usages">
+        <div class="tool-usage-item">Rapid prototyping of new REST API designs and flows</div>
+        <div class="tool-usage-item">Exploring unfamiliar libraries and third-party integrations</div>
+        <div class="tool-usage-item">Generating SQL query drafts and database schema ideas</div>
+        <div class="tool-usage-item">Explaining error stack traces and suggesting quick fixes</div>
+      </div>
+    </div>
+
+    <!-- Gemini -->
+    <div class="ai-tool-card" style="--tool-color: #4285f4;">
+      <div class="tool-header">
+        <div class="tool-logo">♊</div>
+        <div>
+          <div class="tool-name">Gemini</div>
+          <div class="tool-category">Research &amp; Analysis</div>
+        </div>
+      </div>
+      <p class="tool-desc">Leveraged for research-heavy tasks, staying updated with the Java ecosystem, and cross-referencing documentation. Integrated via Google Workspace for seamless productivity.</p>
+      <div class="tool-usages">
+        <div class="tool-usage-item">Researching Java 24 features, Spring releases &amp; migration guides</div>
+        <div class="tool-usage-item">Analyzing AWS service options and cloud architecture patterns</div>
+        <div class="tool-usage-item">Summarizing lengthy RFCs, ADRs, and technical specifications</div>
+        <div class="tool-usage-item">Generating dashboards &amp; analytics queries for New Relic / QuickSight</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Vibe Coding Banner -->
+  <div class="vibe-banner reveal" style="transition-delay:0.2s;">
+    <div class="vibe-banner-left">
+      <div class="vibe-title">Vibe Coding is <em>not a shortcut</em> —<br/>it's a superpower.</div>
+      <p class="vibe-desc">AI tools don't replace engineering judgment — they amplify it. I use Gen AI to eliminate friction, explore faster, and spend more time on what actually matters: thoughtful system design, clean abstractions, and shipping reliable software.</p>
+    </div>
+    <div class="vibe-stats">
+      <div class="vibe-stat">
+        <div class="vibe-stat-num">4+</div>
+        <div class="vibe-stat-label">AI Tools Daily</div>
+      </div>
+      <div class="vibe-stat">
+        <div class="vibe-stat-num">2×</div>
+        <div class="vibe-stat-label">Faster Delivery</div>
+      </div>
+      <div class="vibe-stat">
+        <div class="vibe-stat-num">↓70%</div>
+        <div class="vibe-stat-label">Boilerplate Time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <div id="contact">
   <div class="contact-left">
@@ -395,8 +607,8 @@
     <p>Open to new opportunities, collaborations, and tech discussions.</p>
   </div>
   <div>
-    <a href="mailto:saradindur3@gmail.com" class="contact-email">saradindur3@gmail.com</a>
-    <a href="mailto:saradindur3@gmail.com" class="btn btn-primary">Send a Message</a>
+    <a href="/cdn-cgi/l/email-protection#1c6f7d6e7d78757278696e2f5c7b717d7570327f7371" class="contact-email"><span class="__cf_email__" data-cfemail="611200130005080f0514135221060c00080d4f020e0c">[email&#160;protected]</span></a>
+    <a href="/cdn-cgi/l/email-protection#d0a3b1a2b1b4b9beb4a5a2e390b7bdb1b9bcfeb3bfbd" class="btn btn-primary">Send a Message</a>
   </div>
 </div>
 
@@ -407,22 +619,11 @@
     <a href="#hero">Top</a>
     <a href="#about">About</a>
     <a href="#portfolio">Work</a>
+    <a href="#ai-tools">AI Tools</a>
     <a href="mailto:saradindur3@gmail.com">Email</a>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal — low threshold so elements trigger early
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+  const observer = new IntersectionObserv
