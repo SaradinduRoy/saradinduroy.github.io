@@ -29,273 +29,101 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 999;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      opacity: 0.5;
-    }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
     /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 1.4rem 5rem;
-      background: rgba(10,10,10,0.9);
+      background: rgba(10,10,10,0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       animation: fadeDown 0.8s ease both;
     }
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-decoration: none;
-    }
+    .nav-logo { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.12em; text-decoration: none; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted2);
-      text-decoration: none;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    .nav-links a { font-family: var(--mono); font-size: 0.72rem; color: var(--muted2); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
     /* HERO */
     #hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 8rem 5rem 4rem;
-      position: relative;
-      overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+      padding: 8rem 5rem 4rem; position: relative; overflow: hidden;
     }
     .hero-bg-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(184,245,64,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,245,64,0.03) 1px, transparent 1px);
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(184,245,64,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,245,64,0.03) 1px, transparent 1px);
       background-size: 60px 60px;
     }
     .hero-glow {
-      position: absolute;
-      width: 600px; height: 600px;
+      position: absolute; width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(184,245,64,0.07) 0%, transparent 70%);
-      top: -100px; right: -100px;
-      pointer-events: none;
+      top: -100px; right: -100px; pointer-events: none;
     }
     .hero-content { position: relative; z-index: 2; }
     .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      font-family: var(--mono); font-size: 0.75rem; color: var(--accent);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
       animation: fadeUp 0.8s 0.2s ease both;
     }
-    .hero-eyebrow::before {
-      content: '';
-      width: 32px; height: 1px;
-      background: var(--accent);
-    }
-    h1 {
-      font-family: var(--serif);
-      font-size: clamp(3rem, 5vw, 5rem);
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.8s 0.35s ease both;
-    }
+    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+    h1 { font-family: var(--serif); font-size: clamp(3rem, 5vw, 5rem); line-height: 1.05; margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.35s ease both; }
     h1 em { font-style: italic; color: var(--accent); }
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--muted2);
-      max-width: 480px;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.8s 0.5s ease both;
-    }
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      animation: fadeUp 0.8s 0.65s ease both;
-    }
+    .hero-desc { font-size: 1.05rem; color: var(--muted2); max-width: 480px; margin-bottom: 2.5rem; animation: fadeUp 0.8s 0.5s ease both; }
+    .hero-cta { display: flex; gap: 1rem; animation: fadeUp 0.8s 0.65s ease both; }
     .btn {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 2rem;
-      border-radius: 2px;
-      transition: all 0.25s;
-      cursor: pointer;
-      display: inline-block;
+      font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 0.85rem 2rem; border-radius: 2px; transition: all 0.25s;
+      cursor: pointer; display: inline-block;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #0a0a0a;
-      font-weight: 500;
-      border: 1px solid var(--accent);
-    }
+    .btn-primary { background: var(--accent); color: #0a0a0a; font-weight: 500; border: 1px solid var(--accent); }
     .btn-primary:hover { background: transparent; color: var(--accent); }
-    .btn-outline {
-      background: transparent;
-      color: var(--muted2);
-      border: 1px solid var(--border);
-    }
+    .btn-outline { background: transparent; color: var(--muted2); border: 1px solid var(--border); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     /* HERO CARD */
-    .hero-right {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 1.2s 0.4s ease both;
-    }
-    .hero-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2.5rem;
-      width: 340px;
-      position: relative;
-    }
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      top: -1px; left: 2rem; right: 2rem;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-    .status-dot {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--accent2);
-      letter-spacing: 0.1em;
-      margin-bottom: 1.5rem;
-    }
-    .status-dot::before {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--accent2);
-      box-shadow: 0 0 8px var(--accent2);
-      animation: pulse 2s infinite;
-    }
-    .stat-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .hero-right { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; animation: fadeIn 1.2s 0.4s ease both; }
+    .hero-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; width: 340px; position: relative; }
+    .hero-card::before { content: ''; position: absolute; top: -1px; left: 2rem; right: 2rem; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+    .status-dot { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.7rem; color: var(--accent2); letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+    .status-dot::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 8px var(--accent2); animation: pulse 2s infinite; }
+    .stat-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
     .stat-item:last-child { border-bottom: none; }
-    .stat-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
+    .stat-label { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
     .stat-value { font-family: var(--mono); font-size: 0.85rem; color: var(--text); }
     .stat-value.accent { color: var(--accent); }
 
     /* SECTIONS */
     section { padding: 7rem 5rem; }
     .section-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      font-family: var(--mono); font-size: 0.7rem; color: var(--accent);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
     }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      max-width: 60px;
-      height: 1px;
-      background: var(--accent);
-    }
-    h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
+    .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); }
+    h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.1; margin-bottom: 1rem; }
 
     /* ABOUT */
-    #about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-      border-top: 1px solid var(--border);
-    }
+    #about { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; border-top: 1px solid var(--border); }
     .about-text p { color: var(--muted2); margin-bottom: 1.2rem; font-size: 1.0rem; }
     .about-text p:last-child { margin-bottom: 0; }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 2.5rem;
-    }
-    .skill-cell {
-      background: var(--bg);
-      padding: 1.25rem 1.5rem;
-      transition: background 0.2s;
-    }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
+    .skill-cell { background: var(--bg); padding: 1.25rem 1.5rem; transition: background 0.2s; }
     .skill-cell:hover { background: var(--surface); }
     .skill-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .skill-name {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--text);
-      letter-spacing: 0.05em;
-      margin-bottom: 0.2rem;
-    }
+    .skill-name { font-family: var(--mono); font-size: 0.75rem; color: var(--text); letter-spacing: 0.05em; margin-bottom: 0.2rem; }
     .skill-desc { font-size: 0.72rem; color: var(--muted); }
 
     /* TIMELINE */
     .exp-item { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; }
     .exp-line { display: flex; flex-direction: column; align-items: center; }
-    .exp-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-      margin-top: 5px;
-    }
+    .exp-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 5px; }
     .exp-connector { width: 1px; flex: 1; background: var(--border); min-height: 40px; }
     .exp-year { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
     .exp-role { font-weight: 500; font-size: 0.95rem; color: var(--text); margin-bottom: 0.4rem; }
@@ -306,29 +134,16 @@
     #portfolio { border-top: 1px solid var(--border); }
     .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
     .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
     }
     .project-card {
-      background: var(--bg);
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: background 0.3s;
+      background: var(--bg); padding: 2.5rem;
+      position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s;
     }
     .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
     }
     .project-card:hover { background: var(--surface); }
     .project-card:hover::before { transform: scaleX(1); }
@@ -336,86 +151,33 @@
     .project-title { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.75rem; line-height: 1.2; }
     .project-desc { font-size: 0.85rem; color: var(--muted2); margin-bottom: 1.75rem; line-height: 1.6; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.6rem;
-      letter-spacing: 0.08em;
-      transition: all 0.2s;
-    }
+    .tag { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); border: 1px solid var(--border); padding: 0.25rem 0.6rem; letter-spacing: 0.08em; transition: all 0.2s; }
     .project-card:hover .tag { border-color: rgba(184,245,64,0.3); color: var(--muted2); }
-    .project-arrow {
-      position: absolute;
-      bottom: 2.5rem; right: 2.5rem;
-      font-size: 1.2rem;
-      color: var(--muted);
-      transition: all 0.3s;
-    }
+    .project-arrow { position: absolute; bottom: 2.5rem; right: 2.5rem; font-size: 1.2rem; color: var(--muted); transition: all 0.3s; }
     .project-card:hover .project-arrow { color: var(--accent); transform: translate(4px, -4px); }
 
     /* CONTACT */
-    #contact {
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5rem;
-    }
+    #contact { border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; padding: 5rem; }
     .contact-left h2 { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem); }
     .contact-left h2 em { color: var(--accent); font-style: italic; }
     .contact-left p { color: var(--muted2); margin-top: 0.75rem; font-size: 0.95rem; }
-    .contact-email {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      border-bottom: 1px solid rgba(184,245,64,0.3);
-      padding-bottom: 2px;
-      transition: border-color 0.2s;
-      display: block;
-      margin-bottom: 1.5rem;
-    }
+    .contact-email { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); text-decoration: none; letter-spacing: 0.05em; border-bottom: 1px solid rgba(184,245,64,0.3); padding-bottom: 2px; transition: border-color 0.2s; display: block; margin-bottom: 1.5rem; }
     .contact-email:hover { border-color: var(--accent); }
 
     /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    footer { border-top: 1px solid var(--border); padding: 2rem 5rem; display: flex; justify-content: space-between; align-items: center; }
     footer p { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.08em; }
     .footer-links { display: flex; gap: 2rem; }
     .footer-links a { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
 
     /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--accent2); }
-      50% { opacity: 0.5; box-shadow: 0 0 4px var(--accent2); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--accent2); } 50% { opacity: 0.5; box-shadow: 0 0 4px var(--accent2); } }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* RESPONSIVE */
@@ -435,6 +197,7 @@
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">SARADINDUR.DEV</a>
   <ul class="nav-links">
@@ -451,10 +214,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Senior Software Engineer</div>
     <h1>Building <em>scalable</em><br/>systems that<br/>endure.</h1>
-    <p class="hero-desc">
-      9 years crafting high-performance microservice architectures
-      with Spring Boot 3.x &amp; Java 24. From design to deployment.
-    </p>
+    <p class="hero-desc">9 years crafting high-performance microservice architectures with Spring Boot 3.x &amp; Java 24. From design to deployment.</p>
     <div class="hero-cta">
       <a href="#portfolio" class="btn btn-primary">View Work</a>
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
@@ -463,26 +223,11 @@
   <div class="hero-right">
     <div class="hero-card">
       <div class="status-dot">Available for Opportunities</div>
-      <div class="stat-item">
-        <span class="stat-label">Experience</span>
-        <span class="stat-value accent">9 Years</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Primary Stack</span>
-        <span class="stat-value">Java 24 / Spring Boot 3.x</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Architecture</span>
-        <span class="stat-value">Microservices</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Databases</span>
-        <span class="stat-value">MySQL · PostgreSQL</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">DevOps</span>
-        <span class="stat-value">Docker · Jenkins · Git</span>
-      </div>
+      <div class="stat-item"><span class="stat-label">Experience</span><span class="stat-value accent">9 Years</span></div>
+      <div class="stat-item"><span class="stat-label">Primary Stack</span><span class="stat-value">Java 24 / Spring Boot 3.x</span></div>
+      <div class="stat-item"><span class="stat-label">Architecture</span><span class="stat-value">Microservices</span></div>
+      <div class="stat-item"><span class="stat-label">Databases</span><span class="stat-value">MySQL · PostgreSQL</span></div>
+      <div class="stat-item"><span class="stat-label">DevOps</span><span class="stat-value">Docker · Jenkins · Git</span></div>
     </div>
   </div>
 </section>
@@ -493,55 +238,17 @@
     <div class="section-label">About Me</div>
     <h2>Engineer &amp;<br/><em style="font-style:italic;color:var(--accent)">Problem Solver</em></h2>
     <div class="about-text" style="margin-top:1.5rem;">
-      <p>
-        I'm a seasoned software engineer with 9 years of hands-on expertise building robust,
-        scalable applications. My core strength lies in Spring Boot 3.x and Java 24, where I
-        leverage modern language features — lambdas, streams, and functional paradigms — to
-        write clean, maintainable code.
-      </p>
-      <p>
-        I specialize in designing microservice architectures that prioritize loose coupling,
-        fault tolerance, and horizontal scalability using Spring Cloud and Netflix OSS.
-        I care deeply about the entire software lifecycle — from requirements and design to
-        deployment and production monitoring.
-      </p>
-      <p>
-        Security is never an afterthought: I implement authentication, authorization, and data
-        protection best practices from day one. Committed to continuous learning and staying
-        at the frontier of the JVM ecosystem.
-      </p>
+      <p>I'm a seasoned software engineer with 9 years of hands-on expertise building robust, scalable applications. My core strength lies in Spring Boot 3.x and Java 24, leveraging modern language features — lambdas, streams, and functional paradigms — to write clean, maintainable code.</p>
+      <p>I specialize in designing microservice architectures that prioritize loose coupling, fault tolerance, and horizontal scalability using Spring Cloud and Netflix OSS. I care deeply about the entire software lifecycle — from requirements and design through to deployment and production monitoring.</p>
+      <p>Security is never an afterthought: I implement authentication, authorization, and data protection best practices from day one. Committed to continuous learning and staying at the frontier of the JVM ecosystem.</p>
     </div>
     <div class="skills-grid">
-      <div class="skill-cell">
-        <div class="skill-icon">🚀</div>
-        <div class="skill-name">Spring Boot 3.x</div>
-        <div class="skill-desc">Scalable, maintainable apps</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-icon">☕</div>
-        <div class="skill-name">Java 24</div>
-        <div class="skill-desc">Modern JVM features</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-icon">🌐</div>
-        <div class="skill-name">Microservices</div>
-        <div class="skill-desc">Spring Cloud · Netflix OSS</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-icon">🛠️</div>
-        <div class="skill-name">RESTful APIs</div>
-        <div class="skill-desc">Secure &amp; well-designed</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-icon">🗄️</div>
-        <div class="skill-name">Databases</div>
-        <div class="skill-desc">MySQL · PostgreSQL</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-icon">🔧</div>
-        <div class="skill-name">DevOps</div>
-        <div class="skill-desc">Docker · Jenkins · Git</div>
-      </div>
+      <div class="skill-cell"><div class="skill-icon">🚀</div><div class="skill-name">Spring Boot 3.x</div><div class="skill-desc">Scalable, maintainable apps</div></div>
+      <div class="skill-cell"><div class="skill-icon">☕</div><div class="skill-name">Java 24</div><div class="skill-desc">Modern JVM features</div></div>
+      <div class="skill-cell"><div class="skill-icon">🌐</div><div class="skill-name">Microservices</div><div class="skill-desc">Spring Cloud · Netflix OSS</div></div>
+      <div class="skill-cell"><div class="skill-icon">🛠️</div><div class="skill-name">RESTful APIs</div><div class="skill-desc">Secure &amp; well-designed</div></div>
+      <div class="skill-cell"><div class="skill-icon">🗄️</div><div class="skill-name">Databases</div><div class="skill-desc">MySQL · PostgreSQL</div></div>
+      <div class="skill-cell"><div class="skill-icon">🔧</div><div class="skill-name">DevOps</div><div class="skill-desc">Docker · Jenkins · Git</div></div>
     </div>
   </div>
 
@@ -623,7 +330,7 @@
     </div>
   </div>
   <div class="portfolio-grid">
-    <div class="project-card reveal">
+    <div class="project-card">
       <div class="project-num">01 —</div>
       <div class="project-title">E-Commerce Microservice Platform</div>
       <div class="project-desc">Architected a fully distributed e-commerce backend with independent services for inventory, orders, payments, and notifications. Achieved 99.9% uptime via circuit breakers and event-driven communication.</div>
@@ -632,7 +339,7 @@
       </div>
       <div class="project-arrow">↗</div>
     </div>
-    <div class="project-card reveal" style="transition-delay:0.1s;">
+    <div class="project-card">
       <div class="project-num">02 —</div>
       <div class="project-title">Secure API Gateway &amp; Auth Service</div>
       <div class="project-desc">Designed a centralized API gateway with JWT-based authentication, role-based access control, and rate limiting. Reduced unauthorized access incidents to zero in production.</div>
@@ -641,7 +348,7 @@
       </div>
       <div class="project-arrow">↗</div>
     </div>
-    <div class="project-card reveal" style="transition-delay:0.2s;">
+    <div class="project-card">
       <div class="project-num">03 —</div>
       <div class="project-title">Real-Time Data Processing Pipeline</div>
       <div class="project-desc">Built a high-throughput data ingestion pipeline handling 500K+ events per minute. Integrated with MySQL and PostgreSQL for persistence and analytics queries.</div>
@@ -650,30 +357,30 @@
       </div>
       <div class="project-arrow">↗</div>
     </div>
-    <div class="project-card reveal" style="transition-delay:0.05s;">
+    <div class="project-card">
       <div class="project-num">04 —</div>
-      <div class="project-title">CI/CD Automation Framework</div>
-      <div class="project-desc">Established a complete CI/CD pipeline from scratch using Jenkins and Docker, reducing deployment time by 70% and eliminating manual release errors across multiple microservice teams.</div>
+      <div class="project-title">7PS Test Automation Platform</div>
+      <div class="project-desc">Developed new features for Capital One's internal on-premise automation platform, supporting Cypress, Playwright, Karate, Jest, and more. Improved CI/CD integration for 20+ daily users.</div>
       <div class="project-tags">
-        <span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Shell Scripting</span>
+        <span class="tag">Node.js</span><span class="tag">Java</span><span class="tag">Cypress</span><span class="tag">Playwright</span><span class="tag">AWS</span>
       </div>
       <div class="project-arrow">↗</div>
     </div>
-    <div class="project-card reveal" style="transition-delay:0.15s;">
+    <div class="project-card">
       <div class="project-num">05 —</div>
-      <div class="project-title">Inventory &amp; ERP Integration Service</div>
-      <div class="project-desc">Developed a RESTful integration layer connecting legacy ERP systems with modern cloud services. Ensured data consistency through distributed transaction management and idempotency patterns.</div>
+      <div class="project-title">FedEx Logistics API Suite</div>
+      <div class="project-desc">Built backend APIs for FedEx to streamline logistics operations, deployed on Pivotal Cloud Foundry (PaaS). Improved business process efficiency through clean, well-documented REST interfaces.</div>
       <div class="project-tags">
-        <span class="tag">Spring Boot</span><span class="tag">REST</span><span class="tag">PostgreSQL</span><span class="tag">Flyway</span>
+        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Cloud Foundry</span><span class="tag">REST APIs</span>
       </div>
       <div class="project-arrow">↗</div>
     </div>
-    <div class="project-card reveal" style="transition-delay:0.25s;">
+    <div class="project-card">
       <div class="project-num">06 —</div>
-      <div class="project-title">Healthcare Patient Portal API</div>
-      <div class="project-desc">Engineered a HIPAA-compliant RESTful API for a patient management system. Implemented end-to-end encryption, audit logging, and fine-grained authorization for sensitive medical records.</div>
+      <div class="project-title">MUFG SSO Microservices</div>
+      <div class="project-desc">Led API and service development for MUFG's SSO team at Capgemini. Designed secure microservice endpoints while mentoring junior developers on architecture best practices.</div>
       <div class="project-tags">
-        <span class="tag">Spring Boot</span><span class="tag">Security</span><span class="tag">Java 24</span><span class="tag">AES Encryption</span>
+        <span class="tag">Spring Boot</span><span class="tag">Microservices</span><span class="tag">Java</span><span class="tag">GitLab</span>
       </div>
       <div class="project-arrow">↗</div>
     </div>
@@ -681,26 +388,41 @@
 </section>
 
 <!-- CONTACT -->
-<div id="contact" class="reveal">
+<div id="contact">
   <div class="contact-left">
     <div class="section-label">Contact</div>
     <h2>Let's build something<br/><em>great together.</em></h2>
     <p>Open to new opportunities, collaborations, and tech discussions.</p>
   </div>
   <div>
-    <a href="/cdn-cgi/l/email-protection#5221332033363b3c3627206112353f333b3e7c313d3f" class="contact-email"><span class="__cf_email__" data-cfemail="deadbfacbfbab7b0baabaced9eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></a>
-    <a href="/cdn-cgi/l/email-protection#cab9abb8abaea3a4aebfb8f98aada7aba3a6e4a9a5a7" class="btn btn-primary">Send a Message</a>
+    <a href="mailto:saradindur3@gmail.com" class="contact-email">saradindur3@gmail.com</a>
+    <a href="mailto:saradindur3@gmail.com" class="btn btn-primary">Send a Message</a>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Saradindur. All rights reserved.</p>
+  <p>&copy; 2025 Saradindur. All rights reserved.</p>
   <div class="footer-links">
     <a href="#hero">Top</a>
     <a href="#about">About</a>
     <a href="#portfolio">Work</a>
-    <a href="/cdn-cgi/l/email-protection#ee9d8f9c8f8a87808a9b9cddae89838f8782c08d8183">Email</a>
+    <a href="mailto:saradindur3@gmail.com">Email</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></
+<script>
+  // Scroll reveal — low threshold so elements trigger early
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
